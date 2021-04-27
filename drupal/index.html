@@ -7,7 +7,7 @@
             content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
         />
 
-        <title>reveal.js</title>
+        <title>Szkolenie z Drupala</title>
 
         <link rel="stylesheet" href="../dist/reset.css" />
         <link rel="stylesheet" href="../dist/reveal.css" />
@@ -55,21 +55,22 @@
                     </picture>
                     <h1 style="line-height: 1; margin: 0">Drupal 🤔</h1>
                     <p style="margin: 0; line-height: 1; font-size: 0.7em">
-                        Czyli jak żyć
-                        <!-- <small
+                        Czyli jak żyć<br/>
+                        <small
                             >by
                             <a href="" title="LinkedIn profile" target="_blank"
                                 >Michał Stolarski</a
                             ></small
-                        > -->
+                        >
                     </p>
                 </section>
 
                 <!-- Agenda -->
                 <section>
                     <h2>Agenda:</h2>
-                    <ul>
+                    <ul style="font-size: 0.8em;">
                         <li>Wstęp</li>
+                        <li>Szybkie przypomnienie podstaw</li>
                         <li>Drupal Way</li>
                         <li>Dobre praktyki</li>
                         <li>Tworzenie szablonu</li>
@@ -81,6 +82,531 @@
                         <li>Jak myśleć po CMS'owemu</li>
                         <li>Kiedy wołać o pomoc</li>
                     </ul>
+                </section>
+
+                <!-- Wstęp -->
+                <section>
+                    <section>
+                        <h2>Wstęp</h2>
+
+                        <p>Co to właściwie jest ten cały Drupal?!</p>
+                    </section>
+
+                    <section>
+                        <blockquote cite="https://drupalize.me/what-is-drupal">
+                            Drupal is a free, open-source content management system (CMS) with a large, supportive community. It's used by millions of people and organizations around the globe to build and maintain their websites.
+                        </blockquote>
+                    </section>
+
+                    <section>
+                        <blockquote cite="https://www.drupal.org/docs/user_guide/en/understanding-drupal.html">
+                            Drupal is a flexible CMS based on the LAMP stack, with a modular design allowing features to be added and removed by installing and uninstalling modules, and allowing the entire look and feel of the website to be changed by installing and uninstalling themes.
+                        </blockquote>
+                    </section>
+
+                    <section>
+                        <h3>Drupal</h3>
+                        <p>CMS oparty o PHP z systemem szablonów TWIG.</p>
+                    </section>
+
+                    <section>
+                        <p><strong>Front zajmuje się tworzeniem szablonów i/lub encji.</strong></p>
+
+                        <aside class="notes">
+                            Pojęcie <strong>Szablon</strong> będzie sie u nas przewijać bardzo często. Jest to zamiennik tak naprawdę dla słowa <strong>Aplikacja</strong>. Wynika to z tego, że tworzymy konkretny produkt posiadający konkretne funkcjonalności a słowo szablon bardziej pasuej w konktekście samego drupala jak i tego co robimy.
+                        </aside>
+                    </section>
+                </section>
+
+                <!-- Podstawy -->
+                <section>
+                    <section>
+                        <h2>Szybkie przypomnienie podstaw</h2>
+                        <p>Czyli z czego składa się Drupal</p>
+                    </section>
+
+                    <section>
+                        <ul>
+                            <li>Content type</li>
+                            <li class="fragment">Node</li>
+                            <li class="fragment">Region</li>
+                            <li class="fragment">Block</li>
+                            <li class="fragment">Menu</li>
+                            <li class="fragment">View</li>
+                            <li class="fragment">Taxonomy</li>
+                            <li class="fragment">Form</li>
+                            <li class="fragment">Field</li>
+                            <li class="fragment">+ wiele wiele innych</li>
+                            <li class="fragment">Paragraph</li>
+                        </ul>
+
+                        <aside class="notes">
+                            <p>Ogólnie w tym CMS rozróżnia się kilka podstawowych bytów jak:</p>
+                            <ul>
+                                <li>Content type - typ treść, czyli mówiąc prosto są to rodzaje stron z których możemy utworzyć podstrony serwisu.</li>
+                                <li>Node - to już jest konkretny wyklikany content type.</li>
+                                <li>Region - pewien obszar, który jest współdzielony między wszystkie szablony stron. Domyślnie Drupal ma ich 3: header, content, footer.</li>
+                                <li>Block - prosty element, który domyślnie możemy osadzać w regionie. Dobrym przykładem bloku jest cookie bar, który jest wspólny dla całej strony i nie posiada zawiłej struktury.</li>
+                                <li>Menu - encja, którą możemy osadzić w regionie jako blok, dzięki czemu stworzymy np. główną nawigację.</li>
+                                <li>View - jedyna encja w zestawieniu, która buduje się dynamicznie. Świetnym przykładem jest lista najnowszych artykułów na blogu.</li>
+                                <li>Taxonomy - zbiór pojęć, które mogą służyć np. jako kategorie do powiązania ze sobą podobnych artykułów.</li>
+                                <li>Form - my głównie korzystamy z Webformów czyli biblioteki, która rozszerza możliwości Drupal Formów (podstawowej biblioteki do tworzenia formularzy)</li>
+                                <li>Field - pole, najmniejszy byt z tego wszystkiego ponieważ to przy jego pomocy budujemy inne encje.</li>
+                                <li>Paragraph - dodatkowy byt, który pozwala nam w łatwiejszy sposób budować treści</li>
+                            </ul>
+
+                            <p>Powyższe entity to podstawowe byty i wspólne dla wszystkich encji Drupala na świecie.</p>
+                        </aside>
+                    </section>
+
+                    <section>
+                        <ul>
+                            <li>Content</li>
+                            <li class="fragment">Translations</li>
+                            <li class="fragment">Slug / Machine name</li>
+                            <li class="fragment">Configuration - import/export</li>
+                            <li class="fragment">Image styles</li>
+                            <li class="fragment">Date styles</li>
+                            <li class="fragment">Kint</li>
+                            <li class="fragment">DD</li>
+                            <li class="fragment">Cache</li>
+                            <li class="fragment">Drush</li>
+                            <li class="fragment">Composer</li>
+                            <li class="fragment">Docker</li>
+                        </ul>
+
+                        <aside class="notes">
+                            <p><u>dd - dump debug</u></p>
+                            <p>Ogólnie, wszystkie te pojęcia powinny być przez Was znane i rozumiane.</p>
+
+                            <ul>
+                                <li>Content - obiekt w Drupalu, który zawiera treść szablonu - mięso</li>
+                                <li>Machine name - nazwa maszynowa encji</li>
+                                <li>Configuration - co jest a co nie jest konfiguracją</li>
+                                <li>Image styles - style obrazków - thumbnail</li>
+                                <li>Date styles - customowe formaty dat</li>
+                                <li>Kint - narzędzie do debugowania - dostępne metody np. .get($field_name)</li>
+                            </ul>
+                        </aside>
+                    </section>
+                </section>
+
+                <!-- Drupal way -->
+                <section>
+                    <section>
+                        <h2>Drupal way</h2>
+                        <img src="/drupal/assets/the-ten-commandments-1956-poster.jpg" />
+
+                        <aside class="notes">
+                            <ul>
+                                <li>Nie ma jasnej definicji</li>
+                                <li>Na czuja</li>
+                                <li>Chodzi o tworzenie aplikacji zgodnie z ideą/flow jaki wymyślili twórcy CMS'a</li>
+                            </ul>
+                        </aside>
+                    </section>
+
+                    <section>
+                        <ul>
+                            <li class="fragment fade-in-then-semi-out">Jeżeli nie renderujesz entity w jego predefiniowanym szablonie tylko gdzieś wyżej to źle robisz</li>
+                            <li class="fragment fade-in-then-semi-out">Jeżeli zamiast używać regionów kombinujesz coś w szablonie page lub html to źle robisz</li>
+                            <li class="fragment fade-in-then-semi-out">Jeżeli zamiast renderować treść w pliku szablonu robisz to w zaimportowanym twig’u to źle robisz</li>
+                            <li class="fragment fade-in-then-semi-out">Jeżeli logika twojego rozwiązania jest mega skomplikowana to znaczy, że źle robisz</li>
+                            <li class="fragment fade-in-then-semi-out">Jeżeli używasz content entity do tworzenia globalnych elementów serwisu to źle robisz</li>
+                        </ul>
+
+                        <aside class="notes">
+                            <p>Niestety <strong>Drupal way</strong> jest mało elastyczny więc wdrażając designy/featury czasami musimy złamać reguły.</p>
+                        </aside>
+                    </section>
+                </section>
+
+                <!-- Dobre praktyki -->
+                <section>
+                    <section>
+                        <h2>Dobre praktyki</h2>
+                        <p>Żeby żyło się lepiej</p>
+                    </section>
+
+                    <section>
+                        <h3>Tworzymy CMS a nie LP</h3>
+                        <p>Nasze funkcjonalności powinny być reużywalne w jak najszerszym możliwym aspekcie.</p>
+                    </section>
+
+                    <section>
+                        <h3>Nazewnictwo encji</h3>
+
+                        <ul>
+                            <li class="fragment">Unikatowe</li>
+                            <li class="fragment">Proste</li>
+                            <li class="fragment">Spójne</li>
+                            <li class="fragment">Opisujące funkcjonalność</li>
+                        </ul>
+
+                        <aside class="notes">
+                            <ul>
+                                <li>Unikatowe - nie może istnieć encja tego samego typu o identycznej nazwie. Slug (machine name) i tak będzie inny.</li>
+                                <li>Proste - czyli krótkie w swojej formie</li>
+                                <li>Spójne - czyli aby name space jakim się posługujemy przy nadawaniu nazw nie był za każdym razem inny</li>
+                                <li>Opisujące funkcjonalność - <strong>NAJWIĘKSZY BŁĄD</strong> - bardzo bardzo często zamiast nadać nazwę po funkcjonalności nadajemy ją po treści jaka ma się tam znaleźć. Jest to bardzo bardzo złe bo kompletnie nieprzyszłościowe.</li>
+                            </ul>
+                        </aside>
+                    </section>
+
+                    <section>
+                        <h3>Nazewnictwo prostych paragrafów</h3>
+
+                        <p class="fragment r-fit-text"><strong><u>Block</u></strong> Foo</p>
+                        
+                        <aside class="notes">
+                            <p>Proste paragrafy - czyli takie, które mają jedno konkretne, nie skomplikowane zadanie do wykonania. Np. paragraf <u>Raw HTML</u>, który pozwoli CE osadzić customową html'kę nie przewidzianą na etapie deweloperki.</p>
+                            <p>Dzięki temu będziemy wiedzieli od razu z jakim typem paragrafu mamy do czyniania.</p>
+                        </aside>
+                    </section>
+
+                    <section>
+                        <h3>Nazewnictwo złożonych paragrafów</h3>
+
+                        <ul>
+                            <li class="fragment">
+                                Slider
+                            </li>
+                            <li class="fragment">
+                                Slider <u>- block</u>
+                            </li>
+                        </ul>
+                        
+                        <aside class="notes">
+                            <p>Świetnym przykładem złożonego paragrafu jest slider.</p>
+                            <ul>
+                                <li>Slider - główny paragraf (kontener)</li>
+                                <li>Slider - block - czyli nasze slide'y. Block z zasady jest elementem, który będzie osadzony wewnątrz rodzica wielokrotnie.</li>
+                            </ul>
+
+                            <p>Taka nomenklatura, pomijając czytelność ma jeszcze jeden wielki plus. W spisie paragrafów "Paragraph types" będziemy mieli rodzica a za nim, bezpośrednio wszystkie jego dzieci. Później przy sprzątaniu z niepotrzebnych encji nie będziemy sie zastanawiać co do czego należy.</p>
+                        </aside>
+                    </section>
+
+                    <section>
+                        <h3>Katalog <u>"Override"</u> 🤬</h3>
+                        <p>Nigdy tego nie rób</p>
+
+                        <ul>
+                            <li class="fragment">Zło</li>
+                            <li class="fragment">Zmniejsza czytelność</li>
+                            <li class="fragment">Tworzenie szablonów to z zasady nadpisywanie domyślnego szablonu</li>
+                            <li class="fragment">ZŁO!</li>
+                        </ul>
+
+                        <aside class="notes">
+                            <ul>
+                                <li>Zło</li>
+                                <li>Zmniejsza czytelność - wieczne szukanie gdzie leży np. node.html.twig</li>
+                                <li>Tworzenie szablonów to z zasady nadpisywanie domyślnego szablonu</li>
+                                <li>ZŁO!</li>
+                            </ul>
+                        </aside>
+                    </section>
+
+                    <section>
+                        <p class="r-fit-text">Jakieś inne propozycje?</p>
+                    </section>
+                </section>
+
+                <!-- Tworzenie szablonu -->
+                <section>
+                    <section>
+                        <h2>Tworzenie szablonu</h2>
+                    </section>
+
+                    <section>
+                        <h3>Folder z szablonem</h3>
+                        <p>Ten powinien być zawsze w poniższej lokalizacji:</p>
+                        <p class="r-fit-text"><small class="fragment">web/</small><u><strong class="fragment">themes/</strong><strong class="fragment">custom/</strong></u></p>
+                    </section>
+
+                    <section>
+                        <h3>Podstawowe pliki</h3>
+                        <p>bez których nie podepniemy szablonu pod Drupala.</p>
+
+                        <ul>
+                            <li class="element">
+                                *.info.yml
+                            </li>
+                            <li class="element">
+                                *.libraries.yml
+                            </li>
+                            <li class="element">
+                                *.theme
+                            </li>
+                        </ul>
+
+                        <aside class="notes">
+                            <ul>
+                                <li>
+                                    *.info.yml - główny plik wewnątrz którego jest zdefiniowana nazwa, opis, szablon po którym dziedziczy czy nawet typy regionów jakie szablon posiada.
+                                </li>
+                                <li>
+                                    *.libraries.yml - plik w którym wskazujemy ścieżki do CSS i JS naszego szablonu
+                                </li>
+                                <li>
+                                    *.theme - plik, o dziwo PHP'owy w którym zawarte są specjalne funkcje wspierające szablonowanie, czyli pomagają aby szablon działał poprawnie z Drupalem. Zazwyczaj ten plik jest pusty albo ma z jedną funkcję. 
+                                </li>
+                            </ul>
+                        </aside>
+                    </section>
+
+                    <section>
+                        <h3>Struktura katalogów</h3>
+                        <p>Czyli idea, którą powinniśmy kierować się przy tworzeniu folderów dla szablonów.</p>
+                    </section>
+
+                    <section>
+                        <p>Idea jest bardzo prosta.</p>
+
+                        <ul>
+                            <li class="fragment">Płaska struktura</li>
+                            <li class="fragment">Nazwa pochodzaca od nazwy encji</li>
+                        </ul>
+
+                        <p class="fragment">
+                            Czyli dla np. dla wszystkich encji typu paragraph powinien istnieć wspólny folder <u>paragraphs</u>. <br/>Dla node → <u>nodes</u>. Itp. itd..
+                        </p>
+                    </section>
+
+                    <section>
+                        <p class="r-fit-text">Przykład</p>
+
+                        <aside class="notes">
+                            <a href="https://github.com/lauriii/classy" target="_blank">https://github.com/lauriii/classy</a>
+                        </aside>
+                    </section>
+                </section>
+
+                <!-- Multisite -->
+                <section>
+                    <section>
+                        <h2>Multisite</h2>
+                        <p>Wady i zalety takiej instancji</p>
+                    </section>
+
+                    <section>
+                        <p>Przy standardowym multisite, serwisy współdzielą core Drupala, moduły oraz szablony ale konfiguracja, baza danych, pliki oraz domeny są odrębne.</p>
+                    </section>
+
+                    <section>
+                        <h3>Zalety</h3>
+                        <ul>
+                            <li class="fragment">Update core robi się tylko raz</li>
+                            <li class="fragment">Update modułów robi sie tylko raz</li>
+                            <li class="fragment">Oddzielna konfiguracja nie powoduje konfliktów między serwisami i nie zabiera namespace</li>
+                            <li class="fragment">Oddzielna baza danych ułatwia utrzymać niezależność serwisu, tak samo jak oddzielne pliki</li>
+                            <li class="fragment">Odrębne custom'owe moduły</li>
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h3>Wady</h3>
+                        <ul>
+                            <li class="fragment">Brak bezpośredniej komunikacji między serwisami</li>
+                            <li class="fragment">Brak możliwości współdzielenia jakiejś części konfiguracji czy tabel w DB</li>
+                            <li class="fragment">Długa lista modułów</li>
+                            <li class="fragment">Szybko puchnące repo</li>
+                        </ul>
+                    </section>
+                </section>
+
+                <!-- Flow renderowania -->
+                <section>
+                    <section>
+                        <h2>Flow renderowania</h2>
+                        <p>Czyli jak działa szablonowość w Drupalu</p>
+                    </section>
+
+                    <section>
+                        <h3>Słowem wstępu</h3>
+                        <p class="fragment">Flow renderowania - inaczej sposób przepływu danych przez cały szablon oraz momentów w których wykorzystywane są jego pliki.</p>
+
+                        <aside class="notes">
+                            <p>Flow renderowania to bardzo ważne pojęcie i wiedza, którą powinniście posiadać. Bez niej lecicie na czuja. Tworzycie szablony feature'ów w nieodpowiednich miejscach przez co macie problem z debug'owaniem. Co gorsza, macie ogromny problem z wyświetleniem danych.</p>
+                        </aside>
+                    </section>
+
+                    <section>
+                        <h3>TWIG suggestions</h3>
+                        <pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers="|2-5|5|3"><script type="text/template">
+                            <!-- FILE NAME SUGGESTIONS:
+                                * paragraph--block-raw-html--default.html.twig
+                                * paragraph--block-raw-html.html.twig
+                                * paragraph--default.html.twig
+                                x paragraph.html.twig
+                             -->
+                        </script></code></pre>
+                    </section>
+
+                    <section>
+                        <h3>Jak Drupal znajduje pliki szablonu</h3>
+                        
+                        <ul>
+                            <li class="fragment">Musza znajdować się w katalogu <u>/templates</u></li>
+                            <li class="fragment">Drupal musi o nich wiedzieć - clear cache po dodaniu pliku</li>
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h3>Zagnieżdżanie szablonów</h3>
+                        <p>Taka drupalowa matrioszka</p>
+
+                        <ul>
+                            <li class="fragment fade-in-then-semi-out"><u>html</u><span style="opacity: .5;">.html.twig</span></li>
+                            <li class="fragment fade-in-then-semi-out"><u>page</u><span style="opacity: .5;">.html.twig</span></li>
+                            <li class="fragment fade-in-then-semi-out"><u>region</u><span style="opacity: .5;">.html.twig</span></li>
+                            <li class="fragment fade-in-then-semi-out"><u>block</u><span style="opacity: .5;">.html.twig</span></li>
+                            <li class="fragment fade-in-then-semi-out"><u>node</u><span style="opacity: .5;">.html.twig</span></li>
+                            <li class="fragment fade-in-then-semi-out"><u>paragraph</u><span style="opacity: .5;">.html.twig</span></li>
+                            <li class="fragment fade-in-then-semi-out"><u>field</u><span style="opacity: .5;">.html.twig</span></li>
+                        </ul>
+                    </section>
+
+                    <section>
+                        <p>Na każdym poziomie mamy dostęp, bezpośrednio do pól danej encji. Jeżeli chcemy dostać się do pól dziecka, w prawidłowy sposób, musimy odwołać się do encji dziecka <u>entity</u>. Działając w inny sposób narażamy się na potencjalne problemy z działaniem Drupala, translacji itd..</p>
+
+                        <aside class="notes">
+                            Pomimo tego, że się da to nadal idąc za "Drupal way" nie powinniśmy wykonywać takich rzeczy. Renderowanie pól szablonu powinno się odbywać na poziomie szablonu danego typu encji.
+                        </aside>
+                    </section>
+
+                    <!-- <section data-background-iframe="https://dev.k2.pl" data-background-interactive></section> -->
+                </section>
+
+                <!-- Regiony, bloki, menu -->
+                <!-- <section>
+                    <h2>Regiony, bloki, menu</h2>
+                </section> -->
+
+                <!-- Bundlowanie CSS i JS -->
+                <section>
+                    <section data-background="https://media3.giphy.com/media/BIo5QXYD7LGbm/giphy.gif">
+                        <h2>Bundlowanie CSS i JS</h2>
+                        <p>Magic!</p>
+                    </section>
+
+                    <section>
+                        <h3>Bundle</h3>
+                        <p>Co to jest?</p>
+
+                        <aside class="notes">
+                            <p>Zacznijmy od ogółu. Czym właściwie jest bundlowanie. Jest to stworzenie z wielu plików tego samego typu jeden wynikowy, wspólny. Dzięki temu można ograniczyć wagę łączna oraz ilość requestów do serwera z prośbą o assety. Drupal korzysta z tego mechanizmu i scale wszystkie pliki JS będące dependencją szablonu, pluginów i komponentów.</p>
+                        </aside>
+                    </section>
+
+                    <section data-background="https://ach-te-internety.pl/wp-content/uploads/2017/06/tree-shaking.png">
+                        <h3 class="fragment" style="background-color: rgba(0, 0, 0, 0.3);">Tree shaking</h3>
+
+                        <aside class="notes">
+                            <p><strong>Tree shaking</strong></p>
+                            <p>Jednak to nie wszystko ponieważ można powiedzieć, że Drupal jest sprytny i nie jest to wcale ironia. Mianowicie Drupal nie bundluje jak głupi wszystkiego co popadnie. Potrafi przeanalizować co występuje w danym node’dzie i specjalnie dla niego dodać to co potrzeba. Dobrym przykładem jest WebForm. Na stronach bez osadzonego formularza nie znajdziemy metod należących do tej biblioteki. Sprytnie co? ;) Tak sobie xD Tzn. nie jest to nic nowego. Sami przecież na froncie korzystamy z importu kodu na żądanie - chunków. Tutaj się dzieje, tak naprawdę to samo tylko wszystko trafia do jednego pliku. </p>
+                        </aside>
+                    </section>
+                </section>
+
+                <!-- Drupal JS -->
+                <section>
+                    <section data-background="https://i.giphy.com/media/3NtY188QaxDdC/giphy.webp">
+                        <h2>Drupal JS</h2>
+
+                        <aside class="notes">
+                            <p>To mentalnie ja kiedy się dowiedziałem o istnieniu Drupal JS</p>
+                        </aside>
+                    </section>
+
+                    <section>
+                        <h3>Co to właściwie jest?</h3>
+                        <p class="fragment">Drupal JS to pewien koncept, który ma ułatwić pracę nad frontową częścią CMS'a. Dzięki niej łatwiej jest kontrolować zachowania Drupala, jego modułów i pracować w bardziej spójny sposób z samym CMS'em.</p>
+                    </section>
+
+                    <section>
+                        <h3>Drupal jako obiekt</h3>
+
+                        <aside class="notes">
+                            <p>“Drupal” to obiekt, który tak naprawdę służy do przetrzymywania globalnych funkcji, które można wykorzystywać z poziomu pluginów, szablonów czy komponentów. Do tego obiektu możemy dodawać swoje funkcje. Jednakże, jak mówi dokumentacja “Drupal” nie służy do trzymania globalnych zmiennych mimo, że sam taką jest :P </p>
+                        </aside>
+                    </section>
+
+                    <section>
+                        <h3>Do czego używać</h3>
+
+                        <ul>
+                            <li class="fragment">Asynchroniczności w Drupalu</li>
+                            <li class="fragment">Sprawdzania czy linki są lokalne lub nie</li>
+                            <li class="fragment">Zmiana relatywnego urla na absolutny</li>
+                            <li class="fragment">Translacja</li>
+                        </ul>
+
+                        <aside class="notes">
+                            <ul>
+                                <li>Async - Webform/Block/Views itp.</li>
+                                <li>Linki - przydatne np. przy triggerowaniu eventów dla analityki gdzie mamy wysyłać takową informację <u>LUB REACT</u></li>
+                                <li>ABS - czasami możemy mieć taką potrzebę</li>
+                                <li>Translation - można tworzyć translacje bezpośrednio przez JS - REACT</li>
+                            </ul>
+                        </aside>
+                    </section>
+
+                    <section>
+                        <h3>Drupal.behaviors</h3>
+                        <p>Ogarnięcie asynchroniczności Drupala</p>
+
+                        <pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers="|3-4,8-9|1,5-7"><script type="text/template">
+                            import WebFormHandler from '../handlers/webformHandler';
+
+                            Drupal.behaviors.webformUpdate = {
+                                attach: function($context, settings) {
+                                    if (!$context) return;
+
+                                    WebFormHandler.update($context);
+                                }
+                            };
+                        </script></code></pre>
+                    </section>
+
+                    <section>
+                        <h3>Drupal.t</h3>
+                        <p>Translacja Drupala</p>
+
+                        <pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers="|1-3|8|9"><script type="text/template">
+                            function Button({ children, ...attributes }) {
+                                return <button {...attributes}>{children}</button>;
+                            }
+
+                            export default function View() {
+                                return (
+                                    <section>
+                                        <Button>{Drupal.t('Cancel');}</Button>
+                                        // <button>Anuluj</button>
+                                    </section>
+                                );
+                            }
+                        </script></code></pre>
+                    </section>
+
+                    <section>
+                        <h3>jQuery</h3>
+                        <p>Drupal nie istnieje bez tego :(</p>
+
+                        <aside class="notes">
+                            <p>Niestety doda też jQuery, które potrzebuje do obsługi. JQuery w konkretnej wersji - tak w serwisie możemy mieć kilka wersji jQuery :sic!:.</p>
+                        </aside>
+                    </section>
+                </section>
+
+                <section>
+                    <h2>Jak myśleć po CMS'owemu</h2>
+                </section>
+
+                <section>
+                    <h2>Kiedy wołać o pomoc</h2>
+                    <p class="fragment r-fit-text">ZAWSZE KIEDY POTRZEBA</p>
                 </section>
             </div>
         </div>
